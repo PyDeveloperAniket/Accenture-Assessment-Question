@@ -1,0 +1,33 @@
+An ordered set of integers p1, p2,..., pn, permutation p, contains n different positive integers, each of which doesn't exceed n. 
+The i-th element of the permutation p will be referred to as pi. We'll refer to the size or length of the permutation as number n.
+The number of such i (1 ≤ i ≤ n) such permutations where pi > pi + 1 is the decreasing coefficient of permutation p1, p2,..., pn. 
+There are two numbers: n and k. Printing the permutation of length n with decreasing coefficient k is your assignment
+
+Input Format:
+    The decreasing coefficient and the permutation length, n, k (1 ≤ n ≤ 105, 0 ≤ k < n) are each separated by a space on a single line.
+
+Output Format:
+    In a single line print n space-separated
+    integers: P1, P2, ..., Pn the permutation of length n with decreasing coefficient
+
+Sample Input:
+    5 2
+
+Sample Output
+    1 5 2 4 3
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+j, k = map(int, input().split())
+
+while k >= 0:
+    print(j, end=" ")
+    j -= 1
+    if j == 0:
+        break
+    k -= 1
+
+i = 1
+while i <= j:
+    print(i, end=" ")
+    i += 1
