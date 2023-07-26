@@ -1,0 +1,24 @@
+                            Ishita is a curious girl and one day she decided to check whether the number is: round or not.
+                            So she wants to write an algorithm fo determine if a number N is round or not.
+                            A round number is a number defined by the following process:
+                                -First starting with any positive integer replace the number by the sum of the squares of its digits.
+                                -Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+                                -Those numbers for which this process ends in 1 are round numbers. 
+                            
+                            Return true if N is a rounded number, and false if not.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+def round_up(n):
+    def square_digits_sum(num):
+        return sum(int(digit) ** 2 for digit in str(num))
+
+    slow = n
+    fast = square_digits_sum(n)
+
+    while fast != 1 and slow != fast:
+        slow = square_digits_sum(slow)
+        fast = square_digits_sum(square_digits_sum(fast))
+
+    return 1 if fast == 1 else 0
+
+print(round_up(int(input())))
